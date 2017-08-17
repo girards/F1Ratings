@@ -1,0 +1,15 @@
+<div class="container">
+
+  <div class='md-padding' layout="row" flex>
+    <div layout="row" flex>
+      <div class="parent" layout="column" ng-repeat="track in tracks" flex>
+            <h2><a href="/tracks/{{track._id}}">{{track.name}}</a></h2>
+            <p>{{track.location}}</p>
+      </div>
+    </div>
+  </div>
+
+  <form action="/tracks/add">
+  <button type="submit" class="btn btn-success btn-lg">Add a track</button>
+</form>
+</div>

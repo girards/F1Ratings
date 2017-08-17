@@ -1,0 +1,27 @@
+<div class="container">
+
+  <div class='md-padding' layout="row" flex>
+    <div layout="row" flex>
+      <div class="col-sm-4" ng-repeat="race in races">
+        <div class="panel">
+
+          <img ng-if='race.thumbnail_url' src="{{race.thumbnail_url}}" alt="Card image cap" style='height: 100%; width: 100%; object-fit: contain'>
+          <img ng-if='!race.thumbnail_url' src="https://placeholdit.imgix.net/~text?txtsize=133&txt=1600%C3%97900&w=1600&h=900" alt="Card image cap" style='height: 100%; width: 100%; object-fit: contain'>
+
+        <div class="panel-body">
+          <h4><a href="/races/{{race.year}}/{{race.name}}">{{race.name}}</a></h4>
+          <p><b>Race note :</b> {{race.rating}}</p>
+          <p><b>Number of votes :</b> {{race.vote_number}}</p>
+          <form ng-submit="vote(race, rate)">
+            <span uib-rating ng-model="rate" max="10" read-only="isReadonly"></span>
+            <button ng-if="votes[$index]" class="btn btn-primary disabled">You already voted {{vote_casted}}</button>
+            <button ng-if="!votes[$index]" class="btn btn-primary">Vote {{rate}}</button>
+          </form>
+        </div>
+      </div>
+      </div>
+        <hr />
+      </div>
+    </div>
+  </div>
+</div>
